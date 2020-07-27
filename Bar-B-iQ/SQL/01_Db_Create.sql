@@ -47,7 +47,8 @@ GO
 
 CREATE TABLE [Animal] (
   [Id] int PRIMARY KEY IDENTITY NOT NULL,
-  [AnimalType] nvarchar(255) NOT NULL
+  [AnimalType] nvarchar(255) NOT NULL,
+  [Image] nvarchar NULL
 )
 GO
 
@@ -55,6 +56,7 @@ CREATE TABLE [Cut] (
   [Id] int PRIMARY KEY IDENTITY NOT NULL,
   [CutType] nvarchar(255),
   [Weight] nvarchar(255),
+  [Image] nvarchar NULL,
   [AnimalId] int
 )
 GO
