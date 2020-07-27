@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS [Cut];
 DROP TABLE IF EXISTS [Doneness];
 
 CREATE TABLE [User] (
-  [Id] int PRIMARY KEY NOT NULL,
+  [Id] int PRIMARY KEY IDENTITY NOT NULL,
   [FirstName] nvarchar(255) NOT NULL,
   [LastName] nvarchar(255),
   [Email] nvarchar(255) NOT NULL,
@@ -24,20 +24,20 @@ CREATE TABLE [User] (
 GO
 
 CREATE TABLE [Note] (
-  [Id] int PRIMARY KEY NOT NULL,
+  [Id] int PRIMARY KEY IDENTITY NOT NULL,
   [Text] nvarchar(255) NOT NULL,
   [UserId] int
 )
 GO
 
 CREATE TABLE [Tip] (
-  [Id] int PRIMARY KEY,
+  [Id] int PRIMARY KEY IDENTITY NOT NULL,
   [TipOfTheDay] nvarchar(255)
 )
 GO
 
 CREATE TABLE [History] (
-  [Id] int PRIMARY KEY NOT NULL,
+  [Id] int PRIMARY KEY IDENTITY NOT NULL,
   [UserId] int NOT NULL,
   [DonenessId] int NOT NULL,
   [DateCooked] datetime NOT NULL,
@@ -46,13 +46,13 @@ CREATE TABLE [History] (
 GO
 
 CREATE TABLE [Animal] (
-  [Id] int PRIMARY KEY NOT NULL,
+  [Id] int PRIMARY KEY IDENTITY NOT NULL,
   [AnimalType] nvarchar(255) NOT NULL
 )
 GO
 
 CREATE TABLE [Cut] (
-  [Id] int PRIMARY KEY,
+  [Id] int PRIMARY KEY IDENTITY NOT NULL,
   [CutType] nvarchar(255),
   [Weight] nvarchar(255),
   [AnimalId] int
@@ -60,7 +60,7 @@ CREATE TABLE [Cut] (
 GO
 
 CREATE TABLE [Doneness] (
-  [Id] int PRIMARY KEY NOT NULL,
+  [Id] int PRIMARY KEY IDENTITY NOT NULL,
   [DonenessChoice] nvarchar(255) NOT NULL,
   [CutId] int NOT NULL,
   [CookTime] int NOT NULL,
