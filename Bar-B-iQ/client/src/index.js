@@ -9,7 +9,6 @@ import * as firebase from "firebase/app";
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
 };
-console.log(firebaseConfig);
 firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(

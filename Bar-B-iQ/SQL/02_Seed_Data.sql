@@ -1,7 +1,7 @@
-DELETE FROM [Animal];
-DELETE FROM [Cut];
-DELETE FROM [Doneness];
 DELETE FROM [History];
+DELETE FROM [Doneness];
+DELETE FROM [Cut];
+DELETE FROM [Animal];
 DELETE FROM [Note];
 DELETE FROM [Tip];
 DELETE FROM [User]
@@ -18,17 +18,17 @@ SET IDENTITY_INSERT [User] ON
 INSERT INTO [User]
   ([Id], [FirstName], [LastName], [Email], [FirebaseUserId])
 VALUES 
-  (1, 'Daniel', 'Hero', 'hero@email.com', 'LG1eq1ycH9hfBrMYOxP5IJgnXmX2');
+  (1, 'Daniel', 'Hero', 'hero@email.com', 'noMYnJXYIAfQlZKLbdyVMwD2k5j2');
 SET IDENTITY_INSERT [User] OFF
 
 SET IDENTITY_INSERT [Animal] ON
 INSERT INTO [Animal]
-  ([Id], [AnimalType])
+  ([Id], [AnimalType], [Image])
 VALUES
-  (1, 'Beef'),
-  (2, 'Pork'),
-  (3, 'Poultry'),
-  (4, 'Seafood')
+  (1, 'Beef', 'http://icons.iconarchive.com/icons/icons8/windows-8/512/Animals-Cow-icon.png'),
+  (2, 'Pork', 'https://img.icons8.com/metro/1600/pig.png'),
+  (3, 'Poultry', 'http://icons.iconarchive.com/icons/icons8/windows-8/512/Animals-Chicken-icon.png'),
+  (4, 'Seafood', 'https://cdn3.iconfinder.com/data/icons/camping-icons/491/Swimming_Fish-512.png')
 SET IDENTITY_INSERT [Animal] OFF
 
 
@@ -114,7 +114,7 @@ SET IDENTITY_INSERT [Doneness] OFF
 
 SET IDENTITY_INSERT [Note] ON
 INSERT INTO [Note]
-   ([Id], [Text], [UserId])
+   ([Id],[Title], [Text], [UserId])
 VALUES
-  (1, 'Need to buy new seasonings!', 1)
+  (1, 'Rub Idea', 'Need to buy new seasonings!', 1)
 SET IDENTITY_INSERT [Note] OFF

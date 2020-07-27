@@ -68,6 +68,8 @@ namespace Bar_B_iQ
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

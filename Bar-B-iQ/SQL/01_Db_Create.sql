@@ -25,6 +25,7 @@ GO
 
 CREATE TABLE [Note] (
   [Id] int PRIMARY KEY IDENTITY NOT NULL,
+  [Title] nvarchar (55) NOT NULL,
   [Text] nvarchar(255) NOT NULL,
   [UserId] int
 )

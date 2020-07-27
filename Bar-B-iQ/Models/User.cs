@@ -15,7 +15,7 @@ namespace Bar_B_iQ.Models
         public string FirstName { get; set; }
 
         [Required]
-        public int LastName { get; set; }
+        public string LastName { get; set; }
 
         [Required]
         [MaxLength(255)]
