@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { UserContext } from "../providers/UserProvider";
 import Login from "./Login";
-import Hello from "./Home";
+import Home from "./Home";
 import Register from "./Register";
 import { NoteList } from "../components/note/NoteList";
+import { AnimalList } from "../components/animal/AnimalList";
 
 export default function ApplicationViews() {
   const { isLoggedIn } = useContext(UserContext);
@@ -13,7 +14,7 @@ export default function ApplicationViews() {
     <main>
       <Switch>
         <Route path="/" exact>
-          {isLoggedIn ? <Hello /> : <Redirect to="/login" />}
+          {isLoggedIn ? <Home /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/login">
@@ -24,7 +25,11 @@ export default function ApplicationViews() {
           <Register />
         </Route>
 
-        <Route path="/note">
+        <Route path="/animal">
+          {isLoggedIn ? <AnimalList /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/note/getByUser">
           {isLoggedIn ? <NoteList /> : <Redirect to="/login" />}
         </Route>
       </Switch>

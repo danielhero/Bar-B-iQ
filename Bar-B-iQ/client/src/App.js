@@ -3,14 +3,17 @@ import { BrowserRouter as Router } from "react-router-dom";
 import ApplicationViews from "./components/ApplicationViews";
 import { UserProvider } from "./providers/UserProvider";
 import { NoteProvider } from "./providers/NoteProvider";
+import { AnimalProvider } from "./providers/AnimalProvider";
 
 function App() {
   return (
     <Router>
       <UserProvider>
-        <NoteProvider>
-          <ApplicationViews />
-        </NoteProvider>
+        <AnimalProvider>
+          <NoteProvider>
+            <ApplicationViews />
+          </NoteProvider>
+        </AnimalProvider>
       </UserProvider>
     </Router>
   );

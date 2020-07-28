@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect } from "react";
 import { AnimalContext } from "../../providers/AnimalProvider";
-import Animal from "./Animal";
-import { CardBody, Card } from "reactstrap";
+import { Animal } from "./Animal";
 
-const PostList = () => {
+export const AnimalList = () => {
   const { animals, getAllAnimals, getAnimalById } = useContext(AnimalContext);
 
   useEffect(() => {
@@ -12,17 +11,11 @@ const PostList = () => {
 
   return (
     <>
-      <Card className="container">
-        <Card img>
-          <CardBody>
-            {animals.map((animal) => (
-              <Animal key={animal.id} animal={animal} />
-            ))}
-          </CardBody>
-        </div>
-      </Card>
+      <div>
+        {animals.map((animal) => (
+          <Animal key={animal.id} animal={animal} />
+        ))}
+      </div>
     </>
   );
 };
-
-export default PostList;
