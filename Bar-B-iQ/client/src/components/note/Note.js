@@ -33,7 +33,7 @@ export const Note = ({ note }) => {
       </Modal>
       <Modal isOpen={deleteModal}>
         <div>
-          Are you sure you want to delete this note?
+          Delete note?
           <br />
           <br />
           <Button

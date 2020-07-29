@@ -16,7 +16,7 @@ export const NewNoteForm = (props) => {
       title: title.current.value,
       text: text.current.value,
     }).then(() => {
-      history.push("/note");
+      history.push("/note/getByUser");
     });
   };
 
@@ -31,19 +31,17 @@ export const NewNoteForm = (props) => {
           placeholder="Enter note header"
           innerRef={title}
           required
-          autoFocus
         />
       </FormGroup>
       <FormGroup>
         <Label htmlFor="text">Notes</Label>
         <Input
-          type="text"
-          name="note"
+          type="textbox"
+          name="text"
           id="noteText"
           placeholder="Enter notes here"
           innerRef={text}
           required
-          autoFocus
         />
       </FormGroup>
       <Button

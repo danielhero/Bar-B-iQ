@@ -40,7 +40,7 @@ export const EditNoteForm = (props) => {
             Note:
             <input
               type="textbox"
-              name="title"
+              name="text"
               required
               autoFocus
               className="form-control"

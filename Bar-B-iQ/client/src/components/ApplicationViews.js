@@ -6,6 +6,7 @@ import Home from "./Home";
 import Register from "./Register";
 import { NoteList } from "../components/note/NoteList";
 import { AnimalList } from "../components/animal/AnimalList";
+import { CutList } from "../components/cut/CutList";
 
 export default function ApplicationViews() {
   const { isLoggedIn } = useContext(UserContext);
@@ -27,6 +28,10 @@ export default function ApplicationViews() {
 
         <Route path="/animal">
           {isLoggedIn ? <AnimalList /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/cut/getByAnimal/:id">
+          {isLoggedIn ? <CutList /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/note/getByUser">

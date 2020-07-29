@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NoteContext } from "../../providers/NoteProvider";
 import { Note } from "./Note";
-import { useParams } from "react-router-dom";
 import { NewNoteForm } from "./NewNoteForm";
 import { Button, Modal } from "reactstrap";
 
