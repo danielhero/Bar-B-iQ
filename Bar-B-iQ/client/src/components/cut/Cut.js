@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const Cut = ({ cut }) => {
   return (
     <>
-      <Link to={``}>
+      <Link to={`/doneness/getByCut/:id`}>
         <Card hoverable="true" className="">
           <CardImg src={cut.cutImage} alt={cut.cutType} />
           <CardBody>

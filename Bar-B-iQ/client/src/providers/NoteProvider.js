@@ -1,56 +1,84 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useContext } from "react";
+import { UserContext } from "./UserProvider";
 
 export const NoteContext = createContext();
 
 export const NoteProvider = (props) => {
   const [notes, setNotes] = useState([]);
+  const { getToken } = useContext(UserContext);
 
-  const getNotesByUserId = (id) => {
-    return fetch(`/api/note/getByUser/${id}`)
-      .then((res) => res.json())
-      .then(setNotes);
-  };
-
-  const getNoteById = (id) => {
-    return fetch(`/api/note/${id}`).then((res) => res.json());
-  };
+  const getNotesByUser = () =>
+    getToken().then((token) =>
+      fetch(`/api/note/getByUser/`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((resp) => resp.json())
+        .then(setNotes)
+    );
 
   const addNote = (note) => {
-    return fetch("/api/note", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(note),
-    }).then(getNotesByUserId);
+    return getToken().then((token) =>
+      fetch("/api/note", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(note),
+      }).then((resp) => {
+        if (resp.ok) {
+          getNotesByUser();
+        } else {
+          throw new Error("Unauthorized");
+        }
+      })
+    );
   };
 
   const updateNote = (note) => {
-    return fetch(`/api/note/${note.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(note),
-    }).then(getNotesByUserId);
+    return getToken().then((token) =>
+      fetch(`/api/note/${note.id}`, {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(note),
+      }).then((resp) => {
+        if (resp.ok) {
+          getNotesByUser();
+        } else {
+          throw new Error("Unauthorized");
+        }
+      })
+    );
   };
 
   const deleteNote = (id) => {
-    return fetch(`/api/note/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then(getNotesByUserId);
+    return getToken().then((token) =>
+      fetch(`/api/note/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }).then((resp) => {
+        if (resp.ok) {
+          getNotesByUser();
+        } else {
+          throw new Error("Unauthorized");
+        }
+      })
+    );
   };
-
   return (
     <NoteContext.Provider
       value={{
         notes,
         setNotes,
-        getNotesByUserId,
-        getNoteById,
+        getNotesByUser,
         addNote,
         updateNote,
         deleteNote,

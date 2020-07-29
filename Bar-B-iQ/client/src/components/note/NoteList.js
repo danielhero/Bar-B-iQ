@@ -1,17 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NoteContext } from "../../providers/NoteProvider";
+import { useHistory } from "react-router-dom";
 import { Note } from "./Note";
 import { NewNoteForm } from "./NewNoteForm";
 import { Button, Modal } from "reactstrap";
 
 export const NoteList = () => {
-  const { notes, getNotesByUserId } = useContext(NoteContext);
+  const { notes, getNotesByUser } = useContext(NoteContext);
   const [newNoteModal, setNoteModal] = useState(false);
+  const history = useHistory();
   const userStorage = JSON.parse(sessionStorage.getItem("user"));
   const toggleNewNoteModal = () => setNoteModal(!newNoteModal);
 
   useEffect(() => {
-    getNotesByUserId(userStorage.id);
+    getNotesByUser(userStorage.id);
   }, []);
 
   if (!notes) {
@@ -39,6 +41,13 @@ export const NoteList = () => {
             <Note key={note.id} note={note} />
           ))}
         </div>
+        <Button
+          onClick={(e) => {
+            history.push("/");
+          }}
+        >
+          Back
+        </Button>
         <Modal isOpen={newNoteModal}>
           <NewNoteForm toggle={toggleNewNoteModal} />
         </Modal>

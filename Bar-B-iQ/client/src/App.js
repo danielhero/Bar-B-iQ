@@ -5,6 +5,7 @@ import { UserProvider } from "./providers/UserProvider";
 import { NoteProvider } from "./providers/NoteProvider";
 import { AnimalProvider } from "./providers/AnimalProvider";
 import { CutProvider } from "./providers/CutProvider";
+import { DonenessProvider } from "./providers/DonenessProvider";
 
 function App() {
   return (
@@ -12,9 +13,11 @@ function App() {
       <UserProvider>
         <AnimalProvider>
           <CutProvider>
-            <NoteProvider>
-              <ApplicationViews />
-            </NoteProvider>
+            <DonenessProvider>
+              <NoteProvider>
+                <ApplicationViews />
+              </NoteProvider>
+            </DonenessProvider>
           </CutProvider>
         </AnimalProvider>
       </UserProvider>
