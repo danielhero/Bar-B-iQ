@@ -8,6 +8,7 @@ import { NoteList } from "../components/note/NoteList";
 import { AnimalList } from "../components/animal/AnimalList";
 import { CutList } from "../components/cut/CutList";
 import { DonenessDropdown } from "../components/doneness/donenessDropdown";
+import { Timer } from "../components/Timer";
 
 export default function ApplicationViews() {
   const { isLoggedIn } = useContext(UserContext);
