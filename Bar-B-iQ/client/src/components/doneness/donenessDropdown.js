@@ -48,7 +48,7 @@ export const DonenessDropdown = () => {
       <div>
         <Button
           onClick={(e) => {
-            history.push(`/cut/getByAnimal/${cut.animalId}`);
+            // history.push(`/cut/getByAnimal/${cut.animalId}`);
           }}
         >
           Back
