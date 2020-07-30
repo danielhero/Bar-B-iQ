@@ -21,6 +21,7 @@ export const CutProvider = (props) => {
         cuts,
         setCuts,
         getCutsByAnimalId,
+        getCutById,
       }}
     >
       {props.children}

@@ -13,46 +13,55 @@ import {
 
 export const DonenessDropdown = () => {
   const { doneness, getDonenessByCutId } = useContext(DonenessContext);
-  const [donenessValue, setDonenessValue] = useState(null);
-  const { cuts } = useContext(CutContext);
+  const [donenessId, setDonenessId] = useState(null);
+  const [singleDoneness, setSingleDoneness] = useState({});
+  const [cut, setCut] = useState({});
+  const { getCutById } = useContext(CutContext);
   const { id } = useParams();
   const history = useHistory();
 
   useEffect(() => {
     getDonenessByCutId(id);
+    getCutById(id).then(setCut);
   }, []);
+
+  const donenessValues = (id, donenessObject) => {
+    setDonenessId(id);
+    setSingleDoneness(donenessObject);
+  };
 
   return (
     <>
       <UncontrolledDropdown>
         <DropdownToggle caret>How do you like it?</DropdownToggle>
-        <DropdownMenu value={donenessValue} type="select">
-          {/* {doneness.map((doneness) => {
+        <DropdownMenu value={donenessId} type="select">
+          {doneness.map((oneDoneness) => {
             return (
               <DropdownItem
-                key={doneness.id}
-                value={doneness.id}
+                key={oneDoneness.id}
+                value={oneDoneness.id}
                 onClick={(e) => {
-                  setDonenessValue(doneness.id);
+                  donenessValues(oneDoneness.id, oneDoneness);
                 }}
               >
-                {doneness.donenessChoice}
+                {oneDoneness.donenessChoice}
               </DropdownItem>
             );
-          })} */}
+          })}
         </DropdownMenu>
       </UncontrolledDropdown>
       <div>
-        <Doneness key={doneness.id} doneness={doneness} />
+        <Doneness key={donenessId} doneness={singleDoneness} />
       </div>
       <div>
         <Button
           onClick={(e) => {
-            // history.push(`/cut/getByAnimal/${cut.animalId}`);
+            history.push(`/cut/getByAnimal/${cut.animalId}`);
           }}
         >
           Back
         </Button>
+        <Button>Timer</Button>
       </div>
     </>
   );
