@@ -6,6 +6,7 @@ import { NoteProvider } from "./providers/NoteProvider";
 import { AnimalProvider } from "./providers/AnimalProvider";
 import { CutProvider } from "./providers/CutProvider";
 import { DonenessProvider } from "./providers/DonenessProvider";
+import Header from "./components/Header";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <CutProvider>
             <DonenessProvider>
               <NoteProvider>
+                <Header />
                 <ApplicationViews />
               </NoteProvider>
             </DonenessProvider>
