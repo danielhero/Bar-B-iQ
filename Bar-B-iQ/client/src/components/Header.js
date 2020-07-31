@@ -36,6 +36,8 @@ export default function Header() {
                   <NavLink tag={RRNavLink} to="/note/getByUser/">
                     GrillBook
                   </NavLink>
+                </NavItem>
+                <NavItem>
                   <NavLink tag={RRNavLink} to="/history/getByUser/">
                     Grilling History
                   </NavLink>

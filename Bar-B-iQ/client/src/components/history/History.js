@@ -1,10 +1,11 @@
 import React, { useState, useContext } from "react";
 import { Card, CardTitle, CardBody, Modal, Button, CardImg } from "reactstrap";
 import { HistoryContext } from "../../providers/HistoryProvider";
+import { Link } from "react-router-dom";
 
 export const History = ({ history }) => {
   const { deleteHistory } = useContext(HistoryContext);
-  const date = date.parse(history.dateCooked);
+  const date = new Date(history.dateCooked);
   const [deleteModal, setDeleteModal] = useState(false);
   const toggleDelete = () => setDeleteModal(!deleteModal);
 
@@ -17,18 +18,23 @@ export const History = ({ history }) => {
             alt={history.doneness.cut.cutType}
           />
         </CardTitle>
-        <CardBody>
-          <h5>{history.doneness.cut.animal.animalType}</h5>
-          What: <p>{history.doneness.cut.cutType}</p>
-          <p>
-            How: {history.doneness.donenessChoice}
-            <ul>
-              <li>{history.doneness.cookTime} minutes</li>
-              <li>{history.doneness.temperature} °F</li>
-            </ul>
-          </p>
-          <p>Grilled On: {date.toLocaleDateString()}</p>
-        </CardBody>
+        <Link to={`/doneness/getByCut/${history.doneness.cut.id}`}>
+          <CardBody>
+            <h5>{history.doneness.cut.animal.animalType}</h5>
+            What:{" "}
+            <p>
+              {history.doneness.cut.cutType}, {history.doneness.cut.weight}
+            </p>
+            <p>
+              How: {history.doneness.donenessChoice}
+              <ul>
+                <li>{history.doneness.cookTime} minutes</li>
+                <li>{history.doneness.temperature} °F</li>
+              </ul>
+            </p>
+            <p>Grilled On: {date.toLocaleDateString()}</p>
+          </CardBody>
+        </Link>
         <Button color="danger" onClick={toggleDelete}>
           Delete
         </Button>

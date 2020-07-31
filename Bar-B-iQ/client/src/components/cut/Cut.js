@@ -10,6 +10,7 @@ export const Cut = ({ cut }) => {
           <CardImg src={cut.cutImage} alt={cut.cutType} />
           <CardBody>
             <h3>{cut.cutType}</h3>
+            <p> approx. {cut.weight}</p>
           </CardBody>
         </Card>
       </Link>
