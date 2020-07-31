@@ -21,7 +21,7 @@ namespace Bar_B_iQ.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetAllAnimals()
         {
             return Ok(_animalRepository.GetAll());
         }

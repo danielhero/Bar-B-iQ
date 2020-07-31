@@ -17,7 +17,7 @@ namespace Bar_B_iQ.Repositories
             _context = context;
         }
 
-        public List<Note> GetNotesByUserId(int id)
+        public List<Note> GetNotesByUser(int id)
         {
             return _context.Note.Include(n => n.User)
                                 .Where(n => n.UserId == id)
@@ -31,7 +31,7 @@ namespace Bar_B_iQ.Repositories
                             .FirstOrDefault(n => n.Id == id);
         }
 
-        public void AddNote(Note note)
+        public void Add(Note note)
         {
             _context.Add(note);
             _context.SaveChanges();

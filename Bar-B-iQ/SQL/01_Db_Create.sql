@@ -26,7 +26,7 @@ GO
 CREATE TABLE [Note] (
   [Id] int PRIMARY KEY IDENTITY NOT NULL,
   [Title] nvarchar (55) NOT NULL,
-  [Text] nvarchar(255) NOT NULL,
+  [Text] nvarchar(500) NOT NULL,
   [UserId] int
 )
 GO
@@ -49,7 +49,7 @@ GO
 CREATE TABLE [Animal] (
   [Id] int PRIMARY KEY IDENTITY NOT NULL,
   [AnimalType] nvarchar(255) NOT NULL,
-  [Image] nvarchar NULL
+  [AnimalImage] nvarchar (255) NULL
 )
 GO
 
@@ -57,7 +57,7 @@ CREATE TABLE [Cut] (
   [Id] int PRIMARY KEY IDENTITY NOT NULL,
   [CutType] nvarchar(255),
   [Weight] nvarchar(255),
-  [Image] nvarchar NULL,
+  [CutImage] nvarchar (255) NULL,
   [AnimalId] int
 )
 GO

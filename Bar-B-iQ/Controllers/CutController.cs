@@ -24,5 +24,11 @@ namespace Bar_B_iQ.Controllers
         {
             return Ok(_cutRepository.GetCutsByAnimalId(id));
         }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            return Ok(_cutRepository.GetById(id));
+        }
     }
 }

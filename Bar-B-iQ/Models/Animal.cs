@@ -9,6 +9,6 @@ namespace Bar_B_iQ.Models
     {
         public int Id { get; set; }
         public string AnimalType { get; set; }
-        public string Image { get; set; }
+        public string AnimalImage { get; set; }
     }
 }

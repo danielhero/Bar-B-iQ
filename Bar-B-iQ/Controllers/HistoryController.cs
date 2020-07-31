@@ -1,8 +1,13 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using Bar_B_iQ.Data;
 using Bar_B_iQ.Models;
 using Bar_B_iQ.Repositories;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bar_B_iQ.Controllers
@@ -10,14 +15,14 @@ namespace Bar_B_iQ.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class NoteController : ControllerBase
+    public class HistoryController : ControllerBase
     {
-        private readonly NoteRepository _noteRepository;
+        private readonly HistoryRepository _historyRepository;
         private readonly UserRepository _userRepository;
 
-        public NoteController(ApplicationDbContext context)
+        public HistoryController(ApplicationDbContext context)
         {
-            _noteRepository = new NoteRepository(context);
+            _historyRepository = new HistoryRepository(context);
             _userRepository = new UserRepository(context);
         }
 
@@ -28,42 +33,32 @@ namespace Bar_B_iQ.Controllers
         }
 
         [HttpGet("getByUser/")]
-        public IActionResult GetNotesByUser()
+        public IActionResult GetHistoryByUser()
         {
             var currentUser = GetCurrentUser();
             var id = currentUser.Id;
 
-            return Ok(_noteRepository.GetNotesByUser(id));
+            return Ok(_historyRepository.GetHistoryByUser(id));
         }
 
-
         [HttpPost]
-        public IActionResult Note(Note note)
+        public IActionResult History(History history)
         {
             var currentUser = GetCurrentUser();
-            
-            note.UserId = currentUser.Id;
-            _noteRepository.Add(note);
-            return CreatedAtAction(nameof(GetNotesByUser), new { id = note.Id }, note);
+
+            history.UserId = currentUser.Id;
+            _historyRepository.Add(history);
+            return CreatedAtAction(nameof(GetHistoryByUser), new { id = history.Id }, history);
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _noteRepository.Delete(id);
+            _historyRepository.Delete(id);
             return NoContent();
         }
 
-        [HttpPut("{id}")]
-        public IActionResult Put(int id, Note note)
-        {
-            if (id != note.Id)
-            {
-                return BadRequest();
-            }
-
-            _noteRepository.Update(note);
-            return NoContent();
-        }
+        
     }
 }
+
