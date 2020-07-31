@@ -1,5 +1,6 @@
 import React, { useState, createContext, useContext } from "react";
 import { UserContext } from "./UserProvider";
+import { Toast } from "reactstrap";
 
 export const HistoryContext = createContext();
 
@@ -30,9 +31,9 @@ export const HistoryProvider = (props) => {
         body: JSON.stringify(history),
       }).then((resp) => {
         if (resp.ok) {
-          getHistoryByUser();
+          alert("Choices have been saved to your History");
         } else {
-          throw new Error("Unauthorized");
+          alert("Need to choose a doneness option first!");
         }
       })
     );

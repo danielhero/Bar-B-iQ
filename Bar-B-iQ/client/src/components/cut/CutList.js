@@ -16,6 +16,9 @@ export const CutList = () => {
   return (
     <>
       <div>
+        <h2>Cut Selection</h2>
+      </div>
+      <div>
         {cuts.map((cut) => (
           <Cut key={cut.id} cut={cut} />
         ))}

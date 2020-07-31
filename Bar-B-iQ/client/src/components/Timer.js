@@ -1,33 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export const Timer = () => {
-  const [seconds, setSeconds] = useState(0);
+  const [timer, setTimer] = useState(0);
   const [isActive, setIsActive] = useState(false);
+  const countRef = useRef(null);
 
   function toggle() {
     setIsActive(!isActive);
   }
 
   function reset() {
-    setSeconds(0);
+    setTimer(0);
     setIsActive(false);
   }
 
+  const formatTime = () => {
+    const getSeconds = `0${timer % 60}`.slice(-2);
+    const minutes = `${Math.floor(timer / 60)}`;
+    const getMinutes = `0${minutes % 60}`.slice(-2);
+    return `${getMinutes} : ${getSeconds}`;
+  };
+
   useEffect(() => {
-    let interval = null;
     if (isActive) {
-      interval = setInterval(() => {
-        setSeconds((seconds) => seconds + 1);
+      countRef.current = setInterval(() => {
+        setTimer((timer) => timer + 1);
       }, 1000);
-    } else if (!isActive && seconds !== 0) {
-      clearInterval(interval);
+    } else if (!isActive && timer !== 0) {
+      clearInterval(countRef.current);
     }
-    return () => clearInterval(interval);
-  }, [isActive, seconds]);
+    return () => clearInterval(countRef.current);
+  }, [isActive, timer]);
 
   return (
     <div className="app">
-      <div className="time">{seconds}s</div>
+      <div className="time">{formatTime()}</div>
       <div className="row">
         <button
           className={`button button-primary button-primary-${

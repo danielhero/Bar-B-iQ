@@ -8,7 +8,7 @@ import { NoteList } from "../components/note/NoteList";
 import { AnimalList } from "../components/animal/AnimalList";
 import { CutList } from "../components/cut/CutList";
 import { DonenessDropdown } from "../components/doneness/donenessDropdown";
-import { Timer } from "../components/Timer";
+import { HistoryList } from "../components/history/HistoryList";
 
 export default function ApplicationViews() {
   const { isLoggedIn } = useContext(UserContext);
@@ -42,6 +42,10 @@ export default function ApplicationViews() {
 
         <Route path="/note/getByUser">
           {isLoggedIn ? <NoteList /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/history/getByUser">
+          {isLoggedIn ? <HistoryList /> : <Redirect to="/login" />}
         </Route>
       </Switch>
     </main>

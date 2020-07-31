@@ -1,23 +1,33 @@
 import React, { useState, useContext } from "react";
-import { Card, CardTitle, CardBody, Modal, Button } from "reactstrap";
+import { Card, CardTitle, CardBody, Modal, Button, CardImg } from "reactstrap";
 import { HistoryContext } from "../../providers/HistoryProvider";
 
 export const History = ({ history }) => {
   const { deleteHistory } = useContext(HistoryContext);
-
+  const date = date.parse(history.dateCooked);
   const [deleteModal, setDeleteModal] = useState(false);
   const toggleDelete = () => setDeleteModal(!deleteModal);
 
   return (
     <>
       <Card className="">
+        <CardTitle>
+          <CardImg
+            src={history.doneness.cut.cutImage}
+            alt={history.doneness.cut.cutType}
+          />
+        </CardTitle>
         <CardBody>
-          <CardTitle>
-            <h5>{history.dateCreated}</h5>
-          </CardTitle>
-          <p></p>
-          <p></p>
-          <p></p>
+          <h5>{history.doneness.cut.animal.animalType}</h5>
+          What: <p>{history.doneness.cut.cutType}</p>
+          <p>
+            How: {history.doneness.donenessChoice}
+            <ul>
+              <li>{history.doneness.cookTime} minutes</li>
+              <li>{history.doneness.temperature} °F</li>
+            </ul>
+          </p>
+          <p>Grilled On: {date.toLocaleDateString()}</p>
         </CardBody>
         <Button color="danger" onClick={toggleDelete}>
           Delete
@@ -32,7 +42,7 @@ export const History = ({ history }) => {
             color="danger"
             onClick={(e) => {
               e.preventDefault();
-              deleteNote(history.id);
+              deleteHistory(history.id);
             }}
           >
             Yes, delete

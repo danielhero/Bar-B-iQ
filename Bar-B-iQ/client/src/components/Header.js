@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { NavLink as RRNavLink } from "react-router-dom";
+import { NavLink as RRNavLink, Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -27,6 +27,19 @@ export default function Header() {
           <Nav className="mr-auto" navbar>
             {isLoggedIn && (
               <>
+                <NavItem>
+                  <NavLink tag={RRNavLink} to="/animal/">
+                    Meat Selection
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={RRNavLink} to="/note/getByUser/">
+                    GrillBook
+                  </NavLink>
+                  <NavLink tag={RRNavLink} to="/history/getByUser/">
+                    Grilling History
+                  </NavLink>
+                </NavItem>
                 <NavItem>
                   <a
                     aria-current="page"

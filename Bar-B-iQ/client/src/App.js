@@ -7,6 +7,7 @@ import { AnimalProvider } from "./providers/AnimalProvider";
 import { CutProvider } from "./providers/CutProvider";
 import { DonenessProvider } from "./providers/DonenessProvider";
 import Header from "./components/Header";
+import { HistoryProvider } from "./providers/HistoryProvider";
 
 function App() {
   return (
@@ -15,10 +16,12 @@ function App() {
         <AnimalProvider>
           <CutProvider>
             <DonenessProvider>
-              <NoteProvider>
-                <Header />
-                <ApplicationViews />
-              </NoteProvider>
+              <HistoryProvider>
+                <NoteProvider>
+                  <Header />
+                  <ApplicationViews />
+                </NoteProvider>
+              </HistoryProvider>
             </DonenessProvider>
           </CutProvider>
         </AnimalProvider>

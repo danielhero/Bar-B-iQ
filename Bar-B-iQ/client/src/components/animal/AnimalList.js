@@ -15,17 +15,22 @@ export const AnimalList = () => {
   return (
     <>
       <div>
+        <h2>Meat Selection</h2>
+      </div>
+      <div>
         {animals.map((animal) => (
           <Animal key={animal.id} animal={animal} />
         ))}
       </div>
-      <Button
-        onClick={(e) => {
-          history.push("/");
-        }}
-      >
-        Back
-      </Button>
+      <div>
+        <Button
+          onClick={(e) => {
+            history.push("/");
+          }}
+        >
+          Back
+        </Button>
+      </div>
     </>
   );
 };

@@ -3,6 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { DonenessContext } from "../../providers/DonenessProvider";
 import { CutContext } from "../../providers/CutProvider";
 import { Doneness } from "./doneness";
+import { Timer } from "../Timer";
 import {
   Button,
   UncontrolledDropdown,
@@ -10,6 +11,7 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
+import { HistoryContext } from "../../providers/HistoryProvider";
 
 export const DonenessDropdown = () => {
   const { doneness, getDonenessByCutId } = useContext(DonenessContext);
@@ -17,6 +19,7 @@ export const DonenessDropdown = () => {
   const [singleDoneness, setSingleDoneness] = useState({});
   const [cut, setCut] = useState({});
   const { getCutById } = useContext(CutContext);
+  const { addHistory } = useContext(HistoryContext);
   const { id } = useParams();
   const history = useHistory();
 
@@ -28,6 +31,14 @@ export const DonenessDropdown = () => {
   const donenessValues = (id, donenessObject) => {
     setDonenessId(id);
     setSingleDoneness(donenessObject);
+  };
+
+  const constructNewHistory = (donenessId) => {
+    const newHistoryObject = {
+      donenessId: donenessId,
+      dateCooked: new Date(),
+    };
+    return addHistory(newHistoryObject);
   };
 
   return (
@@ -61,7 +72,21 @@ export const DonenessDropdown = () => {
         >
           Back
         </Button>
-        <Button>Timer</Button>
+      </div>
+      <div>
+        <Button
+          color="primary"
+          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            constructNewHistory(donenessId);
+          }}
+        >
+          Save
+        </Button>
+      </div>
+      <div>
+        <Timer />
       </div>
     </>
   );
