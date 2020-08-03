@@ -39,6 +39,25 @@ export const HistoryProvider = (props) => {
     );
   };
 
+  const updateHistory = (history) => {
+    return getToken().then((token) =>
+      fetch(`/api/history/${history.id}`, {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(history),
+      }).then((resp) => {
+        if (resp.ok) {
+          getHistoryByUser();
+        } else {
+          throw new Error("Unauthorized");
+        }
+      })
+    );
+  };
+
   const deleteHistory = (id) => {
     return getToken().then((token) =>
       fetch(`/api/history/${id}`, {
@@ -62,6 +81,7 @@ export const HistoryProvider = (props) => {
         setHistories,
         getHistoryByUser,
         addHistory,
+        updateHistory,
         deleteHistory,
       }}
     >

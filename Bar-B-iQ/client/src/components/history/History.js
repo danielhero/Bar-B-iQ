@@ -4,7 +4,7 @@ import { HistoryContext } from "../../providers/HistoryProvider";
 import { Link } from "react-router-dom";
 
 export const History = ({ history }) => {
-  const { deleteHistory } = useContext(HistoryContext);
+  const { updateHistory, deleteHistory } = useContext(HistoryContext);
   const date = new Date(history.dateCooked);
   const [deleteModal, setDeleteModal] = useState(false);
   const toggleDelete = () => setDeleteModal(!deleteModal);

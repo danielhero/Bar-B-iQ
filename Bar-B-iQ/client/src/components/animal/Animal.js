@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const Animal = ({ animal }) => {
   return (
     <>
-      <Link to={`cut/getByAnimal/${animal.id}`}>
+      <Link to={`/cut/getByAnimal/${animal.id}`}>
         <Card hoverable="true" className="">
           <CardImg src={animal.animalImage} alt={animal.animalType} />
           <CardBody>
