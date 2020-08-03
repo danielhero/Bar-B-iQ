@@ -24,8 +24,9 @@ export const AnimalList = () => {
             <Animal key={animal.id} animal={animal} />
           ))}
         </div>
-        <div>
+        <div className="backButton">
           <Button
+            size="lg"
             onClick={(e) => {
               history.push("/");
             }}

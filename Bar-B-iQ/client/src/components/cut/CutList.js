@@ -25,13 +25,16 @@ export const CutList = () => {
             <Cut key={cut.id} cut={cut} />
           ))}
         </div>
-        <Button
-          onClick={(e) => {
-            history.push("/animal");
-          }}
-        >
-          Back
-        </Button>
+        <div className="backButton">
+          <Button
+            size="lg"
+            onClick={(e) => {
+              history.push("/animal");
+            }}
+          >
+            Back
+          </Button>
+        </div>
       </body>
     </>
   );

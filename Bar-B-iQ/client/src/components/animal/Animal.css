@@ -24,3 +24,9 @@
   color: whitesmoke;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
+
+.backButton {
+  margin-left: 10rem;
+  padding-bottom: 2rem;
+  font-size: large;
+}

@@ -43,6 +43,12 @@ namespace Bar_B_iQ.Repositories
             _context.SaveChanges();
         }
 
+        public void Update(History history)
+        {
+            _context.Entry(history).State = EntityState.Modified;
+            _context.SaveChanges();
+        }
+
 
         public void Delete(int id)
         {
