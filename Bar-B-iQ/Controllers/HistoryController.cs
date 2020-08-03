@@ -51,6 +51,18 @@ namespace Bar_B_iQ.Controllers
             return CreatedAtAction(nameof(GetHistoryByUser), new { id = history.Id }, history);
         }
 
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, History history)
+        {
+            if (id != history.Id)
+            {
+                return BadRequest();
+            }
+
+            _historyRepository.Update(history);
+            return NoContent();
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
