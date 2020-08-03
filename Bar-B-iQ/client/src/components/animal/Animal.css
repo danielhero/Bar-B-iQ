@@ -1,0 +1,26 @@
+.animalPage {
+  background-color: lightslategray;
+}
+.animalIcon {
+  width: 200px;
+  height: 200px;
+}
+
+.eachAnimal {
+  margin: 2.5rem;
+  padding: 2rem;
+  border-style: double;
+}
+
+.animalName {
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: black;
+}
+
+.animalHeader {
+  padding-top: 2rem;
+  text-align: center;
+  color: whitesmoke;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
