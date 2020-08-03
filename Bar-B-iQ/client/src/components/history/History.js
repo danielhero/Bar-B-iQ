@@ -2,10 +2,15 @@ import React, { useState, useContext } from "react";
 import { Card, CardTitle, CardBody, Modal, Button, CardImg } from "reactstrap";
 import { HistoryContext } from "../../providers/HistoryProvider";
 import { Link } from "react-router-dom";
+import { EditHistoryForm } from "../history/EditHistoryForm";
 
 export const History = ({ history }) => {
-  const { updateHistory, deleteHistory } = useContext(HistoryContext);
+  const { deleteHistory } = useContext(HistoryContext);
   const date = new Date(history.dateCooked);
+
+  const [editModal, setEditModal] = useState(false);
+  const toggleEdit = () => setEditModal(!editModal);
+
   const [deleteModal, setDeleteModal] = useState(false);
   const toggleDelete = () => setDeleteModal(!deleteModal);
 
@@ -25,20 +30,27 @@ export const History = ({ history }) => {
             <p>
               {history.doneness.cut.cutType}, {history.doneness.cut.weight}
             </p>
-            <p>
+            <div>
               How: {history.doneness.donenessChoice}
               <ul>
                 <li>{history.doneness.cookTime} minutes</li>
                 <li>{history.doneness.temperature} °F</li>
               </ul>
-            </p>
+            </div>
             <p>Grilled On: {date.toLocaleDateString()}</p>
+            <p>{history.comment}</p>
           </CardBody>
         </Link>
+        <Button color="secondary" onClick={toggleEdit}>
+          Add Comment
+        </Button>
         <Button color="danger" onClick={toggleDelete}>
           Delete
         </Button>
       </Card>
+      <Modal isOpen={editModal}>
+        <EditHistoryForm toggle={toggleEdit} history={history} />
+      </Modal>
       <Modal isOpen={deleteModal}>
         <div>
           Delete this past grill history?
