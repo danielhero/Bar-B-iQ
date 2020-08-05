@@ -6,11 +6,11 @@ export const Cut = ({ cut }) => {
   return (
     <>
       <Link to={`/doneness/getByCut/${cut.id}`}>
-        <Card hoverable="true" className="">
-          <CardImg src={cut.cutImage} alt={cut.cutType} />
+        <Card className="eachCut">
+          <CardImg className="cutImage" src={cut.cutImage} alt={cut.cutType} />
           <CardBody>
-            <h3>{cut.cutType}</h3>
-            <p> approx. {cut.weight}</p>
+            <h3 className="cutInfo">{cut.cutType}</h3>
+            <p className="cutInfo"> approx. {cut.weight}</p>
           </CardBody>
         </Card>
       </Link>

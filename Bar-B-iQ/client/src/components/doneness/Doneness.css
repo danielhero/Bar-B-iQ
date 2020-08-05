@@ -1,0 +1,52 @@
+.donenessPage {
+  background-color: dimgray;
+}
+
+.donenessHeader {
+  padding-top: 2rem;
+  text-align: center;
+  color: whitesmoke;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.cutChoiceStatement {
+  text-align: center;
+  color: whitesmoke;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.donenessDropdown {
+  padding-bottom: 1rem;
+  margin-left: 2rem;
+}
+
+.donenessActions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.tableType {
+  color: whitesmoke;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-left: 0.5rem;
+}
+
+.dropdownRender {
+  color: whitesmoke;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-left: 0.5rem;
+}
+
+.saveHistoryButton {
+  margin-bottom: 2rem;
+  margin-left: 4rem;
+}
+
+.backButton {
+  margin-top: 2rem;
+  margin-left: 10rem;
+  margin-bottom: 7rem;
+  padding-bottom: 2rem;
+  font-size: large;
+}

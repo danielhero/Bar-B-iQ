@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { NoteContext } from "../../providers/NoteProvider";
-import { Button } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 export const EditNoteForm = (props) => {
   const { updateNote } = useContext(NoteContext);
@@ -18,39 +18,31 @@ export const EditNoteForm = (props) => {
   };
 
   return (
-    <form className="newNoteForm">
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="title">
-            Title:
-            <input
-              type="text"
-              name="title"
-              required
-              autoFocus
-              className="form-control"
-              placeholder="Edit title"
-              defaultValue={props.note.title}
-              onChange={handleControlledInputChange}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label htmlFor="text">
-            Note:
-            <input
-              type="textbox"
-              name="text"
-              required
-              autoFocus
-              className="form-control"
-              placeholder="Edit Note"
-              defaultValue={props.note.text}
-              onChange={handleControlledInputChange}
-            />
-          </label>
-        </div>
-      </fieldset>
+    <Form className="newNoteForm">
+      <FormGroup>
+        <Label htmlFor="title">Title:</Label>
+        <Input
+          type="text"
+          name="title"
+          id="noteTitle"
+          placeholder="Enter note header"
+          defaultValue={props.note.title}
+          onChange={handleControlledInputChange}
+        />
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="text">Note:</Label>
+        <Input
+          type="textarea"
+          name="text"
+          required
+          autoFocus
+          className="form-control"
+          placeholder="Edit Note"
+          defaultValue={props.note.text}
+          onChange={handleControlledInputChange}
+        />
+      </FormGroup>
       <Button
         color="primary"
         onClick={(e) => {
@@ -60,7 +52,9 @@ export const EditNoteForm = (props) => {
       >
         Save Updates
       </Button>
-      <Button onClick={props.toggle}>Cancel</Button>
-    </form>
+      <Button className="cancel" onClick={props.toggle}>
+        Cancel
+      </Button>
+    </Form>
   );
 };

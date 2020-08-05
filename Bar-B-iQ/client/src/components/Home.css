@@ -1,0 +1,20 @@
+.homePageImgDiv {
+  padding-left: 4rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.logoImg {
+  width: 250px;
+  height: 250px;
+}
+
+.homePageLink {
+  text-align: center;
+}
+
+.eachLink {
+  font-size: x-large;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: black;
+}

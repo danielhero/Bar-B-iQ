@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { Note } from "./Note";
 import { NewNoteForm } from "./NewNoteForm";
 import { Button, Modal } from "reactstrap";
+import "./Note.css";
 
 export const NoteList = () => {
   const { notes, getNotesByUser } = useContext(NoteContext);
@@ -16,41 +17,68 @@ export const NoteList = () => {
     getNotesByUser(userStorage.id);
   }, []);
 
-  if (!notes) {
+  if (notes.length > 0) {
     return (
       <>
-        <Button color="primary" onClick={toggleNewNoteModal}>
-          Add Note
-        </Button>
-        <div className="">
-          <h2>NOTEBOOK IS EMPTY</h2>
-        </div>
-        <Modal isOpen={newNoteModal}>
-          <NewNoteForm toggle={toggleNewNoteModal} />
-        </Modal>
+        <article className="noteComponent">
+          <div className="noteHeader">
+            <h2 className="noteBookName">GrillBook</h2>
+            <Button
+              className="addNoteButton"
+              color="danger"
+              onClick={toggleNewNoteModal}
+            >
+              Add Note
+            </Button>
+          </div>
+          <div className="noteList">
+            {notes.map((note) => (
+              <Note className="eachNote" key={note.id} note={note} />
+            ))}
+          </div>
+          <Button
+            className="backButton"
+            onClick={(e) => {
+              history.push("/");
+            }}
+          >
+            Back
+          </Button>
+          <Modal isOpen={newNoteModal}>
+            <NewNoteForm toggle={toggleNewNoteModal} />
+          </Modal>
+        </article>
       </>
     );
   } else {
     return (
       <>
-        <Button color="primary" onClick={toggleNewNoteModal}>
-          Add Note
-        </Button>
-        <div className="">
-          {notes.map((note) => (
-            <Note key={note.id} note={note} />
-          ))}
-        </div>
-        <Button
-          onClick={(e) => {
-            history.push("/");
-          }}
-        >
-          Back
-        </Button>
-        <Modal isOpen={newNoteModal}>
-          <NewNoteForm toggle={toggleNewNoteModal} />
-        </Modal>
+        <article className="noteComponent">
+          <div className="noteHeader">
+            <h2 className="noteBookName">GrillBook</h2>
+            <Button
+              className="addNoteButton"
+              color="danger"
+              onClick={toggleNewNoteModal}
+            >
+              Add Note
+            </Button>
+          </div>
+          <div className="emptyNoteList">
+            <h2 className="emptyNoteMessage">GRILLBOOK IS EMPTY</h2>
+          </div>
+          <Button
+            className="backButton"
+            onClick={(e) => {
+              history.push("/");
+            }}
+          >
+            Back
+          </Button>
+          <Modal isOpen={newNoteModal}>
+            <NewNoteForm toggle={toggleNewNoteModal} />
+          </Modal>
+        </article>
       </>
     );
   }

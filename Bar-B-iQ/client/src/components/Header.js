@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { NavLink as RRNavLink, Link } from "react-router-dom";
+import { NavLink as RRNavLink } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -10,6 +10,8 @@ import {
   NavLink,
 } from "reactstrap";
 import { UserContext } from "../providers/UserProvider";
+import NavLogo from "./navBarLogo.png";
+import "./Header.css";
 
 export default function Header() {
   const { isLoggedIn, logout } = useContext(UserContext);
@@ -18,9 +20,9 @@ export default function Header() {
 
   return (
     <div>
-      <Navbar color="dark" dark expand="md">
+      <Navbar color="light" light expand="md">
         <NavbarBrand tag={RRNavLink} to="/">
-          Bar-B-iQ
+          <img className="navLogoImg" src={NavLogo} alt="bar-b-iq" />
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>

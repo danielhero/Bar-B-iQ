@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { HistoryContext } from "../../providers/HistoryProvider";
-import { Button } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 export const EditHistoryForm = (props) => {
   const { updateHistory } = useContext(HistoryContext);
@@ -18,24 +18,21 @@ export const EditHistoryForm = (props) => {
   };
 
   return (
-    <form className="newHistoryForm">
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="comment">
-            Comment:
-            <input
-              type="text"
-              name="comment"
-              autoFocus
-              className="form-control"
-              placeholder="Edit comment"
-              defaultValue={props.history.comment}
-              onChange={handleControlledInputChange}
-            />
-          </label>
-        </div>
-      </fieldset>
+    <Form className="editHistoryForm">
+      <FormGroup>
+        <Label htmlFor="comment">Comment:</Label>
+        <Input
+          type="textarea"
+          name="comment"
+          autoFocus
+          className="form-control"
+          placeholder="Edit comment"
+          defaultValue={props.history.comment}
+          onChange={handleControlledInputChange}
+        />
+      </FormGroup>
       <Button
+        className="editCommentButton"
         color="primary"
         onClick={(e) => {
           e.preventDefault();
@@ -44,7 +41,9 @@ export const EditHistoryForm = (props) => {
       >
         Save Comment
       </Button>
-      <Button onClick={props.toggle}>Cancel</Button>
-    </form>
+      <Button className="cancel" onClick={props.toggle}>
+        Cancel
+      </Button>
+    </Form>
   );
 };

@@ -1,31 +1,35 @@
 import React from "react";
-import { Card } from "reactstrap";
 import { Link } from "react-router-dom";
+import "./Home.css";
+import Logo from "./logo.png";
 
 export default function Home() {
   return (
     <>
-      <Card className="">
-        <p className="">
-          <Link to={`/animal`}>
-            <strong>Get Grilling!</strong>
-          </Link>
-        </p>
-      </Card>
-      <Card className="">
-        <p className="">
-          <Link to={`/note/getByUser`}>
-            <strong>Your GrillBook</strong>
-          </Link>
-        </p>
-      </Card>
-      <Card className="">
-        <p className="">
-          <Link to={`/history/getByUser`}>
-            <strong>Grilling History</strong>
-          </Link>
-        </p>
-      </Card>
+      <article className="homePage">
+        <div className="homePageImgDiv">
+          <img className="logoImg" src={Logo} alt="website logo" />
+        </div>
+        <div className="homePageLinks">
+          <p className="homePageLink">
+            <Link className="eachLink" to={`/animal`}>
+              Get Grilling!
+            </Link>
+          </p>
+
+          <p className="homePageLink">
+            <Link className="eachLink" to={`/note/getByUser`}>
+              Your GrillBook
+            </Link>
+          </p>
+
+          <p className="homePageLink">
+            <Link className="eachLink" to={`/history/getByUser`}>
+              Grilling History
+            </Link>
+          </p>
+        </div>
+      </article>
     </>
   );
 }

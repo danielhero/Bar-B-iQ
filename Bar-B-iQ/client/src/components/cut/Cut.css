@@ -1,0 +1,33 @@
+.cutPage {
+  background-color: dimgray;
+  padding-bottom: 1rem;
+}
+.cutImage {
+  width: 250px;
+  height: 200px;
+}
+
+.eachCut {
+  margin: 2.5rem;
+  border-style: double;
+}
+
+.cutInfo {
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: black;
+}
+
+.cutHeader {
+  padding-top: 2rem;
+  text-align: center;
+  color: whitesmoke;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.backButton {
+  margin-left: 10rem;
+  margin-bottom: 7rem;
+  padding-bottom: 5rem;
+  font-size: large;
+}

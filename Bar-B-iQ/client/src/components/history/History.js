@@ -3,6 +3,7 @@ import { Card, CardTitle, CardBody, Modal, Button, CardImg } from "reactstrap";
 import { HistoryContext } from "../../providers/HistoryProvider";
 import { Link } from "react-router-dom";
 import { EditHistoryForm } from "../history/EditHistoryForm";
+import "./History.css";
 
 export const History = ({ history }) => {
   const { deleteHistory } = useContext(HistoryContext);
@@ -16,7 +17,7 @@ export const History = ({ history }) => {
 
   return (
     <>
-      <Card className="">
+      <Card className="eachHistory">
         <CardTitle>
           <CardImg
             src={history.doneness.cut.cutImage}
@@ -24,11 +25,12 @@ export const History = ({ history }) => {
           />
         </CardTitle>
         <Link to={`/doneness/getByCut/${history.doneness.cut.id}`}>
-          <CardBody>
-            <h5>{history.doneness.cut.animal.animalType}</h5>
-            What:{" "}
+          <CardBody className="historyContent">
+            <h4 className="cutName">
+              {history.doneness.cut.animal.animalType}
+            </h4>
             <p>
-              {history.doneness.cut.cutType}, {history.doneness.cut.weight}
+              Cut: {history.doneness.cut.cutType}, {history.doneness.cut.weight}
             </p>
             <div>
               How: {history.doneness.donenessChoice}
@@ -38,21 +40,31 @@ export const History = ({ history }) => {
               </ul>
             </div>
             <p>Grilled On: {date.toLocaleDateString()}</p>
-            <p>{history.comment}</p>
+            <p>Comment: {history.comment}</p>
           </CardBody>
         </Link>
-        <Button color="secondary" onClick={toggleEdit}>
-          Add Comment
-        </Button>
-        <Button color="danger" onClick={toggleDelete}>
-          Delete
-        </Button>
+        <div className="historyButtons">
+          <Button
+            className="editCommentButton"
+            color="secondary"
+            onClick={toggleEdit}
+          >
+            Comment
+          </Button>
+          <Button
+            className="deleteHistoryButton"
+            color="danger"
+            onClick={toggleDelete}
+          >
+            Delete
+          </Button>
+        </div>
       </Card>
       <Modal isOpen={editModal}>
         <EditHistoryForm toggle={toggleEdit} history={history} />
       </Modal>
       <Modal isOpen={deleteModal}>
-        <div>
+        <div className="delete">
           Delete this past grill history?
           <br />
           <br />
