@@ -22,6 +22,8 @@ Must have npm installed on local machine
 
 1. Run 'npm start' from client level in the terminal
 
+1. Simulate the webpage to iPhone X specifications with devtools
+
 1. Register to be a new user!
 
 ## Technology Utilized

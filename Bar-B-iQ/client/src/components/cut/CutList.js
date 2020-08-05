@@ -16,7 +16,7 @@ export const CutList = () => {
 
   return (
     <>
-      <body className="cutPage">
+      <article className="cutPage">
         <div>
           <h2 className="cutHeader">Cut Selection</h2>
         </div>
@@ -35,7 +35,7 @@ export const CutList = () => {
             Back
           </Button>
         </div>
-      </body>
+      </article>
     </>
   );
 };

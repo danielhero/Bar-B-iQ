@@ -1,5 +1,6 @@
 .animalPage {
-  background-color: lightslategray;
+  background-color: dimgray;
+  padding-bottom: 1rem;
 }
 .animalIcon {
   width: 200px;

@@ -1,5 +1,4 @@
 import React from "react";
-import { Card, Image } from "reactstrap";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import Logo from "./logo.png";
@@ -7,7 +6,7 @@ import Logo from "./logo.png";
 export default function Home() {
   return (
     <>
-      <body className="homePage">
+      <article className="homePage">
         <div className="homePageImgDiv">
           <img className="logoImg" src={Logo} alt="website logo" />
         </div>
@@ -30,7 +29,7 @@ export default function Home() {
             </Link>
           </p>
         </div>
-      </body>
+      </article>
     </>
   );
 }

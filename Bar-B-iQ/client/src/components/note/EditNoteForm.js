@@ -52,7 +52,9 @@ export const EditNoteForm = (props) => {
       >
         Save Updates
       </Button>
-      <Button onClick={props.toggle}>Cancel</Button>
+      <Button className="cancel" onClick={props.toggle}>
+        Cancel
+      </Button>
     </Form>
   );
 };

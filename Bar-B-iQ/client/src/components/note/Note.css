@@ -1,6 +1,6 @@
 .noteComponent {
-  background-color: lightslategray;
-  padding-bottom: 34rem;
+  background-color: dimgray;
+  padding-bottom: 22rem;
 }
 
 .noteHeader {
@@ -18,8 +18,17 @@
   color: white;
 }
 
+.noteButtons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 2rem;
+  padding-bottom: 1rem;
+}
+
 .addNoteButton {
   font-size: large;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   padding-left: 3rem;
 }
 
@@ -37,7 +46,6 @@
 
 .eachNote {
   margin: 2.5rem;
-  padding: 2rem;
 }
 
 .noteText {
@@ -50,4 +58,24 @@
 
   padding-bottom: 2rem;
   font-size: large;
+}
+
+.deleteNoteButton {
+  margin-left: 1rem;
+}
+
+.editNoteButton {
+  margin-left: 2rem;
+}
+
+.newNoteForm {
+  margin: 1em;
+}
+
+.cancel {
+  margin-left: 1rem;
+}
+
+.delete {
+  margin: 1em;
 }

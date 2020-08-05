@@ -26,7 +26,9 @@ export const History = ({ history }) => {
         </CardTitle>
         <Link to={`/doneness/getByCut/${history.doneness.cut.id}`}>
           <CardBody className="historyContent">
-            <h5>{history.doneness.cut.animal.animalType}</h5>
+            <h4 className="cutName">
+              {history.doneness.cut.animal.animalType}
+            </h4>
             <p>
               Cut: {history.doneness.cut.cutType}, {history.doneness.cut.weight}
             </p>
@@ -38,25 +40,31 @@ export const History = ({ history }) => {
               </ul>
             </div>
             <p>Grilled On: {date.toLocaleDateString()}</p>
-            <p>{history.comment}</p>
+            <p>Comment: {history.comment}</p>
           </CardBody>
         </Link>
-        <Button
-          className="historyButton"
-          color="secondary"
-          onClick={toggleEdit}
-        >
-          Add Comment
-        </Button>
-        <Button className="historyButton" color="danger" onClick={toggleDelete}>
-          Delete
-        </Button>
+        <div className="historyButtons">
+          <Button
+            className="editCommentButton"
+            color="secondary"
+            onClick={toggleEdit}
+          >
+            Comment
+          </Button>
+          <Button
+            className="deleteHistoryButton"
+            color="danger"
+            onClick={toggleDelete}
+          >
+            Delete
+          </Button>
+        </div>
       </Card>
       <Modal isOpen={editModal}>
         <EditHistoryForm toggle={toggleEdit} history={history} />
       </Modal>
       <Modal isOpen={deleteModal}>
-        <div>
+        <div className="delete">
           Delete this past grill history?
           <br />
           <br />

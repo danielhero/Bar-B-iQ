@@ -15,7 +15,7 @@ export const AnimalList = () => {
 
   return (
     <>
-      <body className="animalPage">
+      <article className="animalPage">
         <div>
           <h2 className="animalHeader">Meat Selection</h2>
         </div>
@@ -34,7 +34,7 @@ export const AnimalList = () => {
             Back
           </Button>
         </div>
-      </body>
+      </article>
     </>
   );
 };

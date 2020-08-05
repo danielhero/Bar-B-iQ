@@ -20,12 +20,12 @@ export const NoteList = () => {
   if (notes.length > 0) {
     return (
       <>
-        <body className="noteComponent">
+        <article className="noteComponent">
           <div className="noteHeader">
             <h2 className="noteBookName">GrillBook</h2>
             <Button
               className="addNoteButton"
-              color="primary"
+              color="danger"
               onClick={toggleNewNoteModal}
             >
               Add Note
@@ -47,18 +47,18 @@ export const NoteList = () => {
           <Modal isOpen={newNoteModal}>
             <NewNoteForm toggle={toggleNewNoteModal} />
           </Modal>
-        </body>
+        </article>
       </>
     );
   } else {
     return (
       <>
-        <body className="noteComponent">
+        <article className="noteComponent">
           <div className="noteHeader">
             <h2 className="noteBookName">GrillBook</h2>
             <Button
               className="addNoteButton"
-              color="primary"
+              color="danger"
               onClick={toggleNewNoteModal}
             >
               Add Note
@@ -78,7 +78,7 @@ export const NoteList = () => {
           <Modal isOpen={newNoteModal}>
             <NewNoteForm toggle={toggleNewNoteModal} />
           </Modal>
-        </body>
+        </article>
       </>
     );
   }

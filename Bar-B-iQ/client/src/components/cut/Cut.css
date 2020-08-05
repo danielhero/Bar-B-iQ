@@ -1,5 +1,6 @@
 .cutPage {
-  background-color: lightslategray;
+  background-color: dimgray;
+  padding-bottom: 1rem;
 }
 .cutImage {
   width: 250px;
@@ -8,7 +9,6 @@
 
 .eachCut {
   margin: 2.5rem;
-  padding: 2rem;
   border-style: double;
 }
 
@@ -27,6 +27,7 @@
 
 .backButton {
   margin-left: 10rem;
-  padding-bottom: 2rem;
+  margin-bottom: 7rem;
+  padding-bottom: 5rem;
   font-size: large;
 }

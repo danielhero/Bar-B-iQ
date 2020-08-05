@@ -3,7 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { DonenessContext } from "../../providers/DonenessProvider";
 import { CutContext } from "../../providers/CutProvider";
 import { Doneness } from "./doneness";
-import { Timer } from "../Timer";
+import { Timer } from "../timer/Timer";
 import {
   Button,
   UncontrolledDropdown,
@@ -44,36 +44,35 @@ export const DonenessDropdown = () => {
 
   return (
     <>
-      <body className="donenessPage">
+      <article className="donenessPage">
         <h2 className="donenessHeader">Grill Time</h2>
         <p className="cutChoiceStatement">
           Lets grill that {cut.weight}. {cut.cutType}!
         </p>
-        <UncontrolledDropdown className="donenessDropdown">
-          <DropdownToggle caret>How do you like it?</DropdownToggle>
-          <DropdownMenu value={donenessId} type="select">
-            {doneness.map((oneDoneness) => {
-              return (
-                <DropdownItem
-                  key={oneDoneness.id}
-                  value={oneDoneness.id}
-                  onClick={(e) => {
-                    donenessValues(oneDoneness.id, oneDoneness);
-                  }}
-                >
-                  {oneDoneness.donenessChoice}
-                </DropdownItem>
-              );
-            })}
-          </DropdownMenu>
-        </UncontrolledDropdown>
-        <div>
-          <Doneness key={donenessId} doneness={singleDoneness} />
-        </div>
-        <div>
+        <div className="donenessActions">
+          <UncontrolledDropdown className="donenessDropdown">
+            <DropdownToggle color="danger" caret>
+              How do you like it?
+            </DropdownToggle>
+            <DropdownMenu value={donenessId} type="select">
+              {doneness.map((oneDoneness) => {
+                return (
+                  <DropdownItem
+                    key={oneDoneness.id}
+                    value={oneDoneness.id}
+                    onClick={(e) => {
+                      donenessValues(oneDoneness.id, oneDoneness);
+                    }}
+                  >
+                    {oneDoneness.donenessChoice}
+                  </DropdownItem>
+                );
+              })}
+            </DropdownMenu>
+          </UncontrolledDropdown>
           <Button
+            color="secondary"
             className="saveHistoryButton"
-            color="primary"
             type="submit"
             onClick={(e) => {
               e.preventDefault();
@@ -82,6 +81,9 @@ export const DonenessDropdown = () => {
           >
             Save
           </Button>
+        </div>
+        <div>
+          <Doneness key={donenessId} doneness={singleDoneness} />
         </div>
         <div>
           <Timer />
@@ -96,7 +98,7 @@ export const DonenessDropdown = () => {
             Back
           </Button>
         </div>
-      </body>
+      </article>
     </>
   );
 };

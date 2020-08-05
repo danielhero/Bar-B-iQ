@@ -18,7 +18,7 @@ export const EditHistoryForm = (props) => {
   };
 
   return (
-    <Form className="newHistoryForm">
+    <Form className="editHistoryForm">
       <FormGroup>
         <Label htmlFor="comment">Comment:</Label>
         <Input
@@ -32,6 +32,7 @@ export const EditHistoryForm = (props) => {
         />
       </FormGroup>
       <Button
+        className="editCommentButton"
         color="primary"
         onClick={(e) => {
           e.preventDefault();
@@ -40,7 +41,9 @@ export const EditHistoryForm = (props) => {
       >
         Save Comment
       </Button>
-      <Button onClick={props.toggle}>Cancel</Button>
+      <Button className="cancel" onClick={props.toggle}>
+        Cancel
+      </Button>
     </Form>
   );
 };

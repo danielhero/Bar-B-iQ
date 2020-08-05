@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useHistory, Link } from "react-router-dom";
 import { UserContext } from "../providers/UserProvider";
+import Logo from "./logo.png";
+import "./Login.css";
 
 export default function Login() {
   const history = useHistory();
@@ -18,8 +20,11 @@ export default function Login() {
   };
 
   return (
-    <main classname="loginContainer">
-      <Form onSubmit={loginSubmit}>
+    <main className="loginContainer">
+      <div className="homePageImgDiv">
+        <img className="logoImg" src={Logo} alt="website logo" />
+      </div>
+      <Form className="loginForm" onSubmit={loginSubmit}>
         <fieldset>
           <FormGroup>
             <Label for="email">Email</Label>

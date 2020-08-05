@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { HistoryContext } from "../../providers/HistoryProvider";
 import { useHistory } from "react-router-dom";
 import { History } from "./History";
-import { Button, Modal } from "reactstrap";
+import { Button } from "reactstrap";
 
 export const HistoryList = () => {
   const { histories, getHistoryByUser } = useContext(HistoryContext);
@@ -16,7 +16,7 @@ export const HistoryList = () => {
   if (histories.length > 0) {
     return (
       <>
-        <body className="historyComponent">
+        <article className="historyComponent">
           <div className="historyHeader">
             <h2 className="historyName">Grill History</h2>
           </div>
@@ -33,13 +33,13 @@ export const HistoryList = () => {
           >
             Back
           </Button>
-        </body>
+        </article>
       </>
     );
   } else {
     return (
       <>
-        <body className="historyComponent">
+        <article className="historyComponent">
           <div className="historyHeader">
             <h2 className="historyName">Grill History</h2>
           </div>
@@ -54,7 +54,7 @@ export const HistoryList = () => {
           >
             Back
           </Button>
-        </body>
+        </article>
       </>
     );
   }

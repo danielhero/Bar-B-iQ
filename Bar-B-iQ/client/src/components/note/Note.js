@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Card, CardTitle, CardBody, Modal, Button } from "reactstrap";
 import { NoteContext } from "../../providers/NoteProvider";
 import { EditNoteForm } from "./EditNoteForm";
+import "./Note.css";
 
 export const Note = ({ note }) => {
   const { deleteNote } = useContext(NoteContext);
@@ -21,18 +22,28 @@ export const Note = ({ note }) => {
           </CardTitle>
           <p className="noteText">{note.text}</p>
         </CardBody>
-        <Button color="secondary" onClick={toggleEdit}>
-          Edit
-        </Button>
-        <Button color="danger" onClick={toggleDelete}>
-          Delete
-        </Button>
+        <div className="noteButtons">
+          <Button
+            className="editNoteButton"
+            color="primary"
+            onClick={toggleEdit}
+          >
+            Edit
+          </Button>
+          <Button
+            className="deleteNoteButton"
+            color="secondary"
+            onClick={toggleDelete}
+          >
+            Delete
+          </Button>
+        </div>
       </Card>
       <Modal isOpen={editModal}>
         <EditNoteForm toggle={toggleEdit} note={note} />
       </Modal>
       <Modal isOpen={deleteModal}>
-        <div>
+        <div className="delete">
           Delete note?
           <br />
           <br />

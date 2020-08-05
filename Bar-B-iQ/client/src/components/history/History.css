@@ -1,12 +1,9 @@
 .historyComponent {
-  background-color: lightslategray;
-  padding-bottom: 36rem;
+  background-color: dimgray;
+  padding-bottom: 24rem;
 }
 
-.HistoryHeader {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.historyHeader {
   padding-left: 2rem;
   padding-top: 2rem;
 }
@@ -16,15 +13,18 @@
   font-size: 40px;
   margin-right: 2rem;
   color: white;
+  text-align: center;
 }
 
 .eachHistory {
   margin: 2.5rem;
-  padding: 2rem;
+}
+
+.cutName {
+  text-align: center;
 }
 
 .historyContent {
-  text-align: center;
   color: black;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   padding-bottom: 2rem;
@@ -47,4 +47,32 @@
 
   padding-bottom: 2rem;
   font-size: large;
+}
+
+.historyButtons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 2rem;
+  padding-bottom: 1rem;
+}
+
+.deleteHistoryButton {
+  margin-left: 1rem;
+}
+
+.editCommentButton {
+  margin-left: 1.5rem;
+}
+
+.editHistoryForm {
+  margin: 1em;
+}
+
+.cancel {
+  margin-left: 1rem;
+}
+
+.delete {
+  margin: 1em;
 }
