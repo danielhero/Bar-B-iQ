@@ -13,29 +13,48 @@ export const HistoryList = () => {
     getHistoryByUser(userStorage.id);
   }, []);
 
-  if (!histories) {
+  if (histories.length > 0) {
     return (
       <>
-        <div className="">
-          <h2>NO GRILLING HISTORY</h2>
-        </div>
+        <body className="historyComponent">
+          <div className="historyHeader">
+            <h2 className="historyName">Grill History</h2>
+          </div>
+          <div className="historyList">
+            {histories.map((history) => (
+              <History key={history.id} history={history} />
+            ))}
+          </div>
+          <Button
+            className="backButton"
+            onClick={(e) => {
+              urlHistory.push("/");
+            }}
+          >
+            Back
+          </Button>
+        </body>
       </>
     );
   } else {
     return (
       <>
-        <div className="">
-          {histories.map((history) => (
-            <History key={history.id} history={history} />
-          ))}
-        </div>
-        <Button
-          onClick={(e) => {
-            urlHistory.push("/");
-          }}
-        >
-          Back
-        </Button>
+        <body className="historyComponent">
+          <div className="historyHeader">
+            <h2 className="historyName">Grill History</h2>
+          </div>
+          <div className="emptyHistoryList">
+            <h2 className="emptyHistoryMessage">NO GRILLING HISTORY</h2>
+          </div>
+          <Button
+            className="backButton"
+            onClick={(e) => {
+              urlHistory.push("/");
+            }}
+          >
+            Back
+          </Button>
+        </body>
       </>
     );
   }

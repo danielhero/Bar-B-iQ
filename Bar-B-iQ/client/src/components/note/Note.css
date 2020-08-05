@@ -1,0 +1,53 @@
+.noteComponent {
+  background-color: lightslategray;
+  padding-bottom: 34rem;
+}
+
+.noteHeader {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 2rem;
+  padding-top: 2rem;
+}
+
+.noteBookName {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 40px;
+  margin-right: 2rem;
+  color: white;
+}
+
+.addNoteButton {
+  font-size: large;
+  padding-left: 3rem;
+}
+
+.emptyNoteList {
+  padding-top: 4rem;
+}
+
+.emptyNoteMessage {
+  text-align: center;
+  color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 25px;
+  padding-bottom: 2rem;
+}
+
+.eachNote {
+  margin: 2.5rem;
+  padding: 2rem;
+}
+
+.noteText {
+  border: solid black thin;
+  padding: 1rem;
+}
+
+.backButton {
+  margin-left: 10rem;
+
+  padding-bottom: 2rem;
+  font-size: large;
+}

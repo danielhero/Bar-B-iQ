@@ -36,7 +36,7 @@ export const NewNoteForm = (props) => {
       <FormGroup>
         <Label htmlFor="text">Notes</Label>
         <Input
-          type="textbox"
+          type="textarea"
           name="text"
           id="noteText"
           placeholder="Enter notes here"

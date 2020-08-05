@@ -12,6 +12,7 @@ import {
   DropdownItem,
 } from "reactstrap";
 import { HistoryContext } from "../../providers/HistoryProvider";
+import "./Doneness.css";
 
 export const DonenessDropdown = () => {
   const { doneness, getDonenessByCutId } = useContext(DonenessContext);
@@ -43,51 +44,59 @@ export const DonenessDropdown = () => {
 
   return (
     <>
-      <UncontrolledDropdown>
-        <DropdownToggle caret>How do you like it?</DropdownToggle>
-        <DropdownMenu value={donenessId} type="select">
-          {doneness.map((oneDoneness) => {
-            return (
-              <DropdownItem
-                key={oneDoneness.id}
-                value={oneDoneness.id}
-                onClick={(e) => {
-                  donenessValues(oneDoneness.id, oneDoneness);
-                }}
-              >
-                {oneDoneness.donenessChoice}
-              </DropdownItem>
-            );
-          })}
-        </DropdownMenu>
-      </UncontrolledDropdown>
-      <div>
-        <Doneness key={donenessId} doneness={singleDoneness} />
-      </div>
-      <div>
-        <Button
-          onClick={(e) => {
-            history.push(`/cut/getByAnimal/${cut.animalId}`);
-          }}
-        >
-          Back
-        </Button>
-      </div>
-      <div>
-        <Button
-          color="primary"
-          type="submit"
-          onClick={(e) => {
-            e.preventDefault();
-            constructNewHistory(donenessId);
-          }}
-        >
-          Save
-        </Button>
-      </div>
-      <div>
-        <Timer />
-      </div>
+      <body className="donenessPage">
+        <h2 className="donenessHeader">Grill Time</h2>
+        <p className="cutChoiceStatement">
+          Lets grill that {cut.weight}. {cut.cutType}!
+        </p>
+        <UncontrolledDropdown className="donenessDropdown">
+          <DropdownToggle caret>How do you like it?</DropdownToggle>
+          <DropdownMenu value={donenessId} type="select">
+            {doneness.map((oneDoneness) => {
+              return (
+                <DropdownItem
+                  key={oneDoneness.id}
+                  value={oneDoneness.id}
+                  onClick={(e) => {
+                    donenessValues(oneDoneness.id, oneDoneness);
+                  }}
+                >
+                  {oneDoneness.donenessChoice}
+                </DropdownItem>
+              );
+            })}
+          </DropdownMenu>
+        </UncontrolledDropdown>
+        <div>
+          <Doneness key={donenessId} doneness={singleDoneness} />
+        </div>
+        <div>
+          <Button
+            className="saveHistoryButton"
+            color="primary"
+            type="submit"
+            onClick={(e) => {
+              e.preventDefault();
+              constructNewHistory(donenessId);
+            }}
+          >
+            Save
+          </Button>
+        </div>
+        <div>
+          <Timer />
+        </div>
+        <div>
+          <Button
+            className="backButton"
+            onClick={(e) => {
+              history.push(`/cut/getByAnimal/${cut.animalId}`);
+            }}
+          >
+            Back
+          </Button>
+        </div>
+      </body>
     </>
   );
 };

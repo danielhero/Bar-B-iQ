@@ -1,0 +1,26 @@
+.donenessPage {
+  background-color: lightslategray;
+}
+
+.donenessHeader {
+  padding-top: 2rem;
+  text-align: center;
+  color: whitesmoke;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.cutChoiceStatement {
+  text-align: center;
+  color: whitesmoke;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.donenessDropdown {
+  padding-bottom: 2rem;
+}
+
+.backButton {
+  margin-left: 10rem;
+  padding-bottom: 2rem;
+  font-size: large;
+}

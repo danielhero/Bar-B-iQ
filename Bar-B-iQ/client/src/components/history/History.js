@@ -3,6 +3,7 @@ import { Card, CardTitle, CardBody, Modal, Button, CardImg } from "reactstrap";
 import { HistoryContext } from "../../providers/HistoryProvider";
 import { Link } from "react-router-dom";
 import { EditHistoryForm } from "../history/EditHistoryForm";
+import "./History.css";
 
 export const History = ({ history }) => {
   const { deleteHistory } = useContext(HistoryContext);
@@ -16,7 +17,7 @@ export const History = ({ history }) => {
 
   return (
     <>
-      <Card className="">
+      <Card className="eachHistory">
         <CardTitle>
           <CardImg
             src={history.doneness.cut.cutImage}
@@ -24,11 +25,10 @@ export const History = ({ history }) => {
           />
         </CardTitle>
         <Link to={`/doneness/getByCut/${history.doneness.cut.id}`}>
-          <CardBody>
+          <CardBody className="historyContent">
             <h5>{history.doneness.cut.animal.animalType}</h5>
-            What:{" "}
             <p>
-              {history.doneness.cut.cutType}, {history.doneness.cut.weight}
+              Cut: {history.doneness.cut.cutType}, {history.doneness.cut.weight}
             </p>
             <div>
               How: {history.doneness.donenessChoice}
@@ -41,10 +41,14 @@ export const History = ({ history }) => {
             <p>{history.comment}</p>
           </CardBody>
         </Link>
-        <Button color="secondary" onClick={toggleEdit}>
+        <Button
+          className="historyButton"
+          color="secondary"
+          onClick={toggleEdit}
+        >
           Add Comment
         </Button>
-        <Button color="danger" onClick={toggleDelete}>
+        <Button className="historyButton" color="danger" onClick={toggleDelete}>
           Delete
         </Button>
       </Card>

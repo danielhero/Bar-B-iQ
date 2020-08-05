@@ -14,12 +14,12 @@ export const Note = ({ note }) => {
 
   return (
     <>
-      <Card className="">
+      <Card className="eachNote">
         <CardBody>
           <CardTitle>
             <h5>{note.title}</h5>
           </CardTitle>
-          <p>{note.text}</p>
+          <p className="noteText">{note.text}</p>
         </CardBody>
         <Button color="secondary" onClick={toggleEdit}>
           Edit
