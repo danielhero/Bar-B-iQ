@@ -77,7 +77,7 @@ export const History = ({ history }) => {
           >
             Yes, delete
           </Button>
-          <Button color="secondary" onClick={toggleDelete}>
+          <Button className="cancel" color="secondary" onClick={toggleDelete}>
             Go back
           </Button>
         </div>

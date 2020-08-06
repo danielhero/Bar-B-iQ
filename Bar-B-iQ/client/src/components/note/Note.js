@@ -56,7 +56,7 @@ export const Note = ({ note }) => {
           >
             Yes, delete
           </Button>
-          <Button color="secondary" onClick={toggleDelete}>
+          <Button className="cancel" color="secondary" onClick={toggleDelete}>
             No, go back
           </Button>
         </div>
