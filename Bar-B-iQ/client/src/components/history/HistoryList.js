@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { HistoryContext } from "../../providers/HistoryProvider";
 import { useHistory } from "react-router-dom";
 import { History } from "./History";
