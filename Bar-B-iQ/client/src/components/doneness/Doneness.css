@@ -46,7 +46,11 @@
 .backButton {
   margin-top: 2rem;
   margin-left: 10rem;
-  margin-bottom: 7rem;
+  margin-bottom: 5.8rem;
   padding-bottom: 2rem;
   font-size: large;
+}
+
+.timerContainer {
+  margin-top: 1.5rem;
 }

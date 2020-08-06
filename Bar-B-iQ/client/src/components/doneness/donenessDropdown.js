@@ -85,7 +85,7 @@ export const DonenessDropdown = () => {
         <div>
           <Doneness key={donenessId} doneness={singleDoneness} />
         </div>
-        <div>
+        <div className="timerContainer">
           <Timer />
         </div>
         <div>
